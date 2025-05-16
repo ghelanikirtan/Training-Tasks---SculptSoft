@@ -92,7 +92,7 @@ class ManageTransactions(DatabaseService):
         
         try:
             query = f"""
-            SELECT status from transactions
+            SELECT issue_date, return_date, status, fine_amount from transactions
             WHERE transaction_id = {trans_id}
             """
             records = self.cursor.execute(query)
@@ -105,6 +105,9 @@ class ManageTransactions(DatabaseService):
               
         except Exception as e:
             print(f"An error occcured: {e}")
+            
+        
+        
         
         
             
