@@ -3,7 +3,9 @@ from src.services.database import DatabaseService
 from src.models.member import MEMBER
 
 class MemberServices(DatabaseService):
-    
+    """get_member_by_id
+    get_all_member
+    """
     def __init__(self):
         super().__init__()
     

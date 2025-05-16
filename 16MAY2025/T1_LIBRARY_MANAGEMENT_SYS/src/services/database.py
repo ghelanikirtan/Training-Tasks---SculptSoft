@@ -89,7 +89,7 @@ class DatabaseService:
             print(f"Member {member.f_name} {member.l_name} Added Successfully!")
             return
     
-    def start_transaction(self, transaction: TRANSACTION):
+    def start_transaction(self, transaction: TRANSACTION) -> int:
         """Start a new transaction.
 
         :param book_id: The ID of the book to be issued.
@@ -108,15 +108,31 @@ class DatabaseService:
         try:
             self.cursor.execute(ADD_TRANSACTION, transaction_details)
             self.connection.commit()
+            
+            
+            try:
+                query = f"""
+                SELECT transaction_id from transactions
+                ORDER BY transaction_id DESC
+                LIMIT 1;
+                """
+
+                records = self.cursor.execute(query)
+                records = records.fetchall()
+                trans_id : int = None
+                for row in records:
+                    trans_id = row[0]
+                
+                return trans_id
+            except Exception:
+                return None
+            
         except sqlite3.IntegrityError:
             print(f"Transaction with member_id: {transaction.member_id} and book_id: {transaction.book_id} Already Exists or Cannot add due to key unavailability.")
-            return
+            return None 
         except Exception as e:
             print(f"An error occured: {e}")
-            return
-        else:
-            print(f"Member with member_id: {transaction.member_id} borrowed book with book_id {transaction.book_id} Successfully!")
-            return
+            return None
         
     # DELETE OPERATIONS -------------------------------------------
     def delete_book(self, book_id: int):

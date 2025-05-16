@@ -6,7 +6,7 @@ class TRANSACTION(BaseModel):
     # transaction_id: int
     book_id: int
     member_id: int
-    issue_date: date
-    return_date: Optional[date] = None
+    issue_date: str
+    return_date: Optional[str] = None
     fine_amount: Optional[float] = None
     status: Literal['completed' , 'in-progress', 'delayed'] = None
