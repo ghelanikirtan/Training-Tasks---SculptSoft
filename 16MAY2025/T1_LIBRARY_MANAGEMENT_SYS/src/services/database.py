@@ -39,8 +39,7 @@ class DatabaseService:
         else:
             print(f"DB Connection closed successfully!")
             
-            
-
+    # INSERT OPERATIONS --------------------------------------
     def add_book(self, book: BOOK):
         """Add a new book to the library
         
@@ -90,7 +89,36 @@ class DatabaseService:
             print(f"Member {member.f_name} {member.l_name} Added Successfully!")
             return
     
-    
+    def start_transaction(self, transaction: TRANSACTION):
+        """Start a new transaction.
+
+        :param book_id: The ID of the book to be issued.
+        :param member_id: The ID of the member who will receive the book.
+        """
+        
+        transaction_details = (
+            transaction.book_id,
+            transaction.member_id,
+            transaction.issue_date,
+            transaction.return_date,
+            transaction.fine_amount,
+            transaction.status
+        )
+        
+        try:
+            self.cursor.execute(ADD_TRANSACTION, transaction_details)
+            self.connection.commit()
+        except sqlite3.IntegrityError:
+            print(f"Transaction with member_id: {transaction.member_id} and book_id: {transaction.book_id} Already Exists or Cannot add due to key unavailability.")
+            return
+        except Exception as e:
+            print(f"An error occured: {e}")
+            return
+        else:
+            print(f"Member with member_id: {transaction.member_id} borrowed book with book_id {transaction.book_id} Successfully!")
+            return
+        
+    # DELETE OPERATIONS -------------------------------------------
     def delete_book(self, book_id: int):
         """Delete a book from the library.
 
@@ -122,35 +150,63 @@ class DatabaseService:
             print(f"Cannot delete Member with id: {member_id}")
         except Exception as e:
             print(f"An error occured: {e}")
-        finally:
+        else:
             print(f"Deleted Member with id: {member_id}")
             return
-    
-    def start_transaction(self, 
-                          book_id: int, 
-                          member_id: int, 
-                          
-                          issue_date: date,
-                          due_date: date,
-                          return_date: Optional[date] = None
-                          ):
-        """Start a new transaction.
-
-        :param book_id: The ID of the book to be issued.
-        :param member_id: The ID of the member who will receive the book.
+        
+    def delete_transaction(self, transaction_id: int):
+        """Delete a particular transaction from the library (borrowers details)!
+        
+        :param transaction_id(int): The ID of the transaction in integer.
         """
+        try:
+            query = f"""DELETE FROM transactions WHERE member_id = {transaction_id};"""
+            self.cursor.execute(query)
+            self.connection.commit()
+        except sqlite3.IntegrityError:
+            print(f"Cannot delete transaction with id: {transaction_id}")
+        except Exception as e:
+            print(f"An error occured: {e}")
+        else:
+            print(f"Deleted Transaction with id: {transaction_id}")
+            return
         
-        
-        
-        pass
-    
-    def update_transaction(self, transaction: TRANSACTION):
+    # UPDATE OPERATIONS --------------------------------------
+    def update_transaction(self, transaction_id:int , fine_amount:float = None, status: Literal['completed' , 'in-progress', 'delayed'] = None):
         """Update an existing transaction.
 
         :param transaction: The transaction object with updated information.
         """ 
-        
-        
-        pass
-    
-    
+        try:
+            query:str= None
+            if status and fine_amount:
+                query = f"""
+                UPDATE transactions
+                SET status = {status}, fine_amount = {fine_amount}
+                WHERE transaction_id  = {transaction_id};
+                """
+            elif fine_amount and not status:
+                query = f"""
+                UPDATE transactions
+                SET fine_amount = {fine_amount}
+                WHERE transaction_id = {transaction_id};
+                """
+            elif status and not fine_amount:
+                query = f"""
+                UPDATE transactions
+                SET status = {status}
+                WHERE transaction_id  = {transaction_id};
+                """
+            if query:
+                self.cursor.execute(query)
+                self.connection.commit()
+            
+        except sqlite3.IntegrityError:
+            print(f"Cannot update the transaction")
+            return
+        except Exception as e:
+            print(f"An error occured: {e}")
+            return
+        else:
+            print(f"Updated the transaction with id: {transaction_id}")
+            return

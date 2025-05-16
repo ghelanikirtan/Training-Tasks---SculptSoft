@@ -13,12 +13,6 @@ INSERT INTO transactions (book_id, member_id, issue_date, return_date, fine_amou
 VALUES (?,?,?,?,?,?);
 """
 
-DELETE_BOOK = """DELETE FROM books WHERE book_id = ?;"""
-
-DELETE_MEMBER = """
-DELETE FROM members
-WHERE member_id = ?;
-"""
 
 DELETE_TRANSACTION = """
 DELETE FROM transactions
