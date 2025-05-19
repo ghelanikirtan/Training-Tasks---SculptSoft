@@ -106,4 +106,3 @@ grades: List[Grade] = grade_services.get_grade_details()
 print('-'*50)
 for grade in grades:
     print(courses)    
-
