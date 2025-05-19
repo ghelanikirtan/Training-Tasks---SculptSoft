@@ -80,23 +80,20 @@ class ProductService:
             
     def update_product(self, product: Product) -> bool:
         """Update a product."""
-        pass
-        # try:
-        #     product_details = (
-        #         product.name,
-        #         product.description,
-        #         product.sku,
-        #         product.price,
-        #         product.category,
-        #         product.product_id
-        #     )
+        try:
             
-        #     self.cursor.execute(UPDATE_PRODUCT, product_details)
-        #     self.connection.commit()
-        #     return True
-        # except Exception as e:
-        #     print(f"An error occurred [update_product]: {e}")
-        #     return False
+            query = f"""
+            UPDATE products
+            SET name = {product.name}, price = {product.price}, category = {product.category}, updated_at = CURRENT_TIMESTAMP
+            WHERE product_id = {product.product_id}
+            """
+                        
+            self.cursor.execute(query)
+            self.connection.commit()
+            return True
+        except Exception as e:
+            print(f"An error occurred [update_product]: {e}")
+            return False
             
     def delete_product(self, product_id: int) -> bool:
         """Delete a product."""

@@ -81,22 +81,18 @@ class WarehouseService:
             
     def update_warehouse(self, warehouse: Warehouse) -> bool:
         """Update a warehouse."""
-        pass
-        # try:
-        #     warehouse_details = (
-        #         warehouse.name,
-        #         warehouse.location,
-        #         warehouse.capacity,
-        #         warehouse.status,
-        #         warehouse.warehouse_id
-        #     )
-            
-        #     self.cursor.execute(UPDATE_WAREHOUSE, warehouse_details)
-        #     self.connection.commit()
-        #     return True
-        # except Exception as e:
-        #     print(f"An error occurred [update_warehouse]: {e}")
-        #     return False
+        try:
+            query = f"""
+            UPDATE warehouses 
+            SET capacity={warehouse.capacity}, status={warehouse.status}, updated_at = CURRENT_TIMESTAMP
+            WHERE warehouse_id = {warehouse.warehouse_id}
+            """     
+            self.cursor.execute(query)
+            self.connection.commit()
+            return True
+        except Exception as e:
+            print(f"An error occurred [update_warehouse]: {e}")
+            return False
             
     def delete_warehouse(self, warehouse_id: int) -> bool:
         """Delete a warehouse."""

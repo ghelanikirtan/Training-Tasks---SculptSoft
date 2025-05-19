@@ -4,12 +4,6 @@ INSERT INTO products (name, price, category)
 VALUES (?, ?, ?);
 """
 
-UPDATE_PRODUCT = """
-UPDATE products
-SET name = ?, description = ?, sku = ?, price = ?, category = ?, updated_at = CURRENT_TIMESTAMP
-WHERE product_id = ?
-"""
-
 DELETE_PRODUCT = """
 DELETE FROM products
 WHERE product_id = ?
@@ -21,11 +15,6 @@ INSERT INTO warehouses (name, location, capacity, status)
 VALUES (?, ?, ?, ?);
 """
 
-UPDATE_WAREHOUSE = """
-UPDATE warehouses
-SET name = ?, location = ?, capacity = ?, status = ?, updated_at = CURRENT_TIMESTAMP
-WHERE warehouse_id = ?
-"""
 
 DELETE_WAREHOUSE = """
 DELETE FROM warehouses
@@ -38,11 +27,6 @@ INSERT INTO inventory (product_id, warehouse_id, quantity)
 VALUES (?, ?, ?);
 """
 
-UPDATE_INVENTORY = """
-UPDATE inventory
-SET quantity = ?, last_restock_date = ?, updated_at = CURRENT_TIMESTAMP
-WHERE product_id = ? AND warehouse_id = ?
-"""
 
 DELETE_INVENTORY = """
 DELETE FROM inventory
