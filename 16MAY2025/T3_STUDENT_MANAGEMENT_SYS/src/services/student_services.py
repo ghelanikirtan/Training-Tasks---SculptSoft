@@ -86,3 +86,7 @@ class StudentService():
             print(f"An error occurred [get_all_students]: {e}")
             return []
         
+        
+    def performance_checker(self):
+        pass
+        

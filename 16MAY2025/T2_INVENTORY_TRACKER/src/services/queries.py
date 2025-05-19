@@ -1,7 +1,7 @@
 # Product Queries
 ADD_PRODUCT = """
-INSERT INTO products (name, description, sku, price, category)
-VALUES (?, ?, ?, ?, ?)
+INSERT INTO products (name, price, category)
+VALUES (?, ?, ?);
 """
 
 UPDATE_PRODUCT = """
@@ -18,7 +18,7 @@ WHERE product_id = ?
 # Warehouse Queries
 ADD_WAREHOUSE = """
 INSERT INTO warehouses (name, location, capacity, status)
-VALUES (?, ?, ?, ?)
+VALUES (?, ?, ?, ?);
 """
 
 UPDATE_WAREHOUSE = """
@@ -35,7 +35,7 @@ WHERE warehouse_id = ?
 # Inventory Queries
 ADD_INVENTORY = """
 INSERT INTO inventory (product_id, warehouse_id, quantity, last_restock_date)
-VALUES (?, ?, ?, ?)
+VALUES (?, ?, ?, ?);
 """
 
 UPDATE_INVENTORY = """
@@ -51,6 +51,6 @@ WHERE inventory_id = ?
 
 # Transaction Queries
 ADD_TRANSACTION = """
-INSERT INTO transactions (product_id, warehouse_id, quantity, transaction_type, reference_id, notes)
-VALUES (?, ?, ?, ?, ?, ?)
+INSERT INTO transactions (product_id, warehouse_id, quantity, transaction_type)
+VALUES (?, ?, ?, ?);
 """

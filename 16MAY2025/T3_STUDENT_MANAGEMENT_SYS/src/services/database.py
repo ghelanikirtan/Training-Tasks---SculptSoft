@@ -14,7 +14,7 @@ class DatabaseService:
     
     def make_migrations(self):
         """Create tables and database."""
-        sql_script = None 
+        sql_scripts = None 
         with open('schema.sql', 'r') as sq:
             sql_scripts = sq.read()
             sql_scripts = sql_scripts.split(';')

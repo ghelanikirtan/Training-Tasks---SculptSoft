@@ -9,4 +9,3 @@ class Course(BaseModel):
     credits: int 
     department: Optional[str] = None 
     
-    
