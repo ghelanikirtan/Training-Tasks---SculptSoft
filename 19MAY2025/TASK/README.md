@@ -21,4 +21,12 @@ engine = create_engine(URL)
 conn = engine.connect()
 ```
 
-2.
+2. Create a Model (Product) and Perform CRUD Operations.
+
+- Performed CRUD Operation on the created Product table.
+
+3. Write a Script to insert and query data using SQLAlchemy's ORM.
+
+- Also done with the insert, select, delete, update query operations using basic Sqlalchemy.
+
+NOTE: Have to explore in-depth about `sqlalchemy.orm` functions
