@@ -17,7 +17,6 @@ class InventoryService:
             inventory.product_id,
             inventory.warehouse_id,
             inventory.quantity,
-            inventory.last_restock_date or datetime.now()
         )
         
         try:
@@ -38,6 +37,7 @@ class InventoryService:
             """
             
             records = self.cursor.execute(query).fetchall()
+            self.connection.commit()
             inventory: Inventory = None 
             for row in records:
                 inventory = Inventory(
@@ -92,7 +92,7 @@ class InventoryService:
             
             query = f"""
             UPDATE inventory
-            SET quantity = {inventory.quantity}, last_restock_date = {inventory.last_restock_date}, updated_at = CURRENT_TIMESTAMP
+            SET quantity = {inventory.quantity}, last_restock_date = CURRENT_TIMESTAMP, updated_at = CURRENT_TIMESTAMP
             WHERE product_id = {inventory.product_id} AND warehouse_id = {inventory.warehouse_id};
             """
             # self.cursor.execute(UPDATE_INVENTORY, inventory_details)

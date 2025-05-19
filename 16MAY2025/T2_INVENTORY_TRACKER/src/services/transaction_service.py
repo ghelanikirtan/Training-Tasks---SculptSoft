@@ -23,9 +23,10 @@ class TransactionService:
         )
         
         try:
-            self.connection.execute("BEGIN TRANSACTION")
+            # self.cursor.execute("BEGIN TRANSACTION")
             
             self.cursor.execute(ADD_TRANSACTION, transaction_details)
+            self.connection.commit()
             
             # Update inventory 
             inventory = self.inventory_service.get_inventory(
@@ -114,4 +115,32 @@ class TransactionService:
             return transactions
         except Exception as e:
             print(f"An error occurred [get_transactions_by_product]: {e}")
+            return []
+        
+    def get_all_transactions(self) -> List[Transaction]:
+        
+        try:
+            query = f"""
+            SELECT transaction_id, product_id, warehouse_id, quantity, transaction_type, transaction_date
+            FROM transactions;
+            """
+            records =self.cursor.execute(query).fetchall()
+            self.connection.commit()
+            transactions : List [Transaction] = []
+
+            for row in records:
+                transactions.append(
+                    Transaction(
+                        transaction_id=row[0],
+                        product_id=row[1],
+                        warehouse_id=row[2],
+                        quantity=row[3],
+                        transaction_type=row[4],
+                        transaction_date=row[5]
+                )
+                )
+            
+            return transactions
+        except Exception as e:
+            print(f"An error occured [get_all_transactions]: {e}")
             return []

@@ -34,8 +34,8 @@ WHERE warehouse_id = ?
 
 # Inventory Queries
 ADD_INVENTORY = """
-INSERT INTO inventory (product_id, warehouse_id, quantity, last_restock_date)
-VALUES (?, ?, ?, ?);
+INSERT INTO inventory (product_id, warehouse_id, quantity)
+VALUES (?, ?, ?);
 """
 
 UPDATE_INVENTORY = """
