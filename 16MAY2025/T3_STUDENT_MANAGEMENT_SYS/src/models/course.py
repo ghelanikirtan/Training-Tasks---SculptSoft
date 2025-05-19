@@ -3,7 +3,7 @@ from typing import Optional
 
 
 class Course(BaseModel):
-    id: Optional[int]
+    id: Optional[int] = None
     course_code: str
     course_name: str
     credits: int 

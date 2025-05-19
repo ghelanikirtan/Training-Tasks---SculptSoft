@@ -3,10 +3,12 @@ from src.models.student import Student
 from src.services.database import DatabaseService
 from src.services.queries import *
 
-class StudentService(DatabaseService):
-    def __init__(self):
-        super().__init__(Student)
-
+class StudentService():
+    def __init__(self, services: DatabaseService = None):
+        self.services = DatabaseService()
+        self.services.make_migrations()
+        self.cursor = self.services.cursor
+        self.connection = self.services.connection        
     
     def add_student(self, student: Student):
         """Add student to students table...

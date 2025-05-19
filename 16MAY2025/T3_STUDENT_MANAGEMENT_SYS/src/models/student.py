@@ -3,7 +3,7 @@ from typing import List, Optional, Literal
 from datetime import date
 
 class Student(BaseModel):
-    id: Optional[int]
+    id: Optional[int] = None
     first_name : str
     last_name: str
     email: str

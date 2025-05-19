@@ -17,18 +17,6 @@ create table if not exists courses(
     department TEXT
 );
 
-create table if not exists enrollments(
-    enrollmend_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    student_id INTEGER NOT NULL,
-    course_id INTEGER NOT NULL,
-    enroll_date TEXT DEFAULT CURRENT_TIMESTAMP,
-
-    FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE,
-    FOREIGN KEY (course_id) REFERENCES courses(course_id) ON DELETE CASCADE,
-    UNIQUE (student_id, course_id)
-);
-
-
 create table if not exists grades (
     grade_id INTEGER PRIMARY KEY AUTOINCREMENT,
     student_id INTEGER NOT NULL,
