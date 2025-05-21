@@ -17,7 +17,7 @@ class ProductService:
         
     def add_product(self, product:Product):
         session = self.services.Session()
-        session.add(product)
+        # session.add(product)
         session.commit()
         session.close()
         del session
