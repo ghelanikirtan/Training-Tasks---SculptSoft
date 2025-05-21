@@ -8,7 +8,6 @@ from src.services.database import DatabaseService
 
 
 
-
 class InventoryService:
     
     def __init__(self, services: DatabaseService = None):

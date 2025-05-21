@@ -14,7 +14,6 @@ from src.services.transaction_services import TransactionService
 
 
 
-
 services = DatabaseService()
 product_services = ProductService(services)
 warehouse_services = WarehouseService(services)

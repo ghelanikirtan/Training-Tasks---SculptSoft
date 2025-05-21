@@ -7,8 +7,26 @@
 2. Implement Transactions using `BEGIN`, `COMMIT`, `ROLLBACK`, and `SAVEPOINT`. Also maintained the ACID Properties.
 
 > - Implemented this thing and along with maintaining the Atomicity, Consistency, Isolation, Durability
+> - To Check this look into `/main.py` testing file.
 
-3. To implement `GRANT` and `REVOKE` methods in the same project [Yet to Implement].
+- For modules look into :
 
-> - Learned about this topics. But yet to practically implement in this project.
-> - Have to create the `User` and `Permission` Table to check for GRANT the user a permission as well as REVOKE the same.
+```
+/src/models/transaction.py
+/src/models/inventory.py
+/src/services/transaction_services.py
+/src/services/inventory_services.py
+```
+
+3. To implement `GRANT` and `REVOKE` methods in the same project.
+
+> - Created the `User` and `Permission` Table along with `user-permissions` table to maintain MANY-MANY relationship between them. That enables user to a permission to perform `[read | write]` actions in resources `['product', 'warehouse', 'inventory', 'transaction']` as well as REVOKE the same.
+>   To Check this look into `/grant_revoke_access.py` testing file.
+
+- For modules look into:
+
+```
+/src/models/user.py
+/src/models/permission.py
+/src/services/permission_manager.py
+```
