@@ -1,4 +1,4 @@
-# TASKS [22TH MAY 2025]
+# TASKS [22ND MAY 2025]
 
 ## Topics (Theoretical):
 
