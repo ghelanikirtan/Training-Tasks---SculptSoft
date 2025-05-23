@@ -1,0 +1,6 @@
+pydantic
+requests
+SQLAlchemy
+pandas
+numpy
+APScheduler
