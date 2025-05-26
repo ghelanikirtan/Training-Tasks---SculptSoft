@@ -38,7 +38,7 @@ Available Options:
 - Replace the null values with basic methods like (mean, median, mode) if required.
 - Or implement appropriate imputation methods like regression imputation, KNN, Decision trees...
 
-- **4. Feature Engineering & Feature Creation:**
+**4. Feature Engineering & Feature Creation:**
 
 - Create a meaningful data from the raw data...
 
