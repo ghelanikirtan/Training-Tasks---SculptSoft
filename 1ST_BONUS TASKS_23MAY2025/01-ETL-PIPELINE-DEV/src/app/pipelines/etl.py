@@ -14,7 +14,6 @@ from src.app import get_logger
 
 
 
-
 class ETLPipeline:
     
     def __init__(self):
@@ -23,7 +22,6 @@ class ETLPipeline:
         self.transformation_pipeline = TransformData()
         self.load_pipeline = LoadData()
 
-    
     def invoke(self, pagesize: int = 10):
         start_time = datetime.now()
         self.logger.info(f"Started an ETL pipeline...")
