@@ -21,3 +21,20 @@
 4. Dropout Layers
 
 5. Early Stopping.
+
+### More methods:
+
+Overfitting Tackle:
+
+- Use shallow models...
+- Use less and relevant features...
+- Early Stopping
+- Cross Validation
+- Data Augmentation
+
+Underfitting Tackle:
+
+- Train longer
+- Feature engg...
+- Remove Regularization (L1, L2)
+- Reduce Noise
