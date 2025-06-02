@@ -6,3 +6,8 @@ scikit-learn
 plotly
 imbalanced-learn
 ipykernel
+transformers
+torch --index-url https://download.pytorch.org/whl/cu126
+torchvision --index-url https://download.pytorch.org/whl/cu126
+torchaudio --index-url https://download.pytorch.org/whl/cu126
+hf_xet
