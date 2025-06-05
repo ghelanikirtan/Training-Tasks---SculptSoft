@@ -5,6 +5,7 @@
 - Iteration.
 - Learning Rate.
 - Parameters vs Hyperparameters
+- Cost Function.
 
 ## TASKS:
 
