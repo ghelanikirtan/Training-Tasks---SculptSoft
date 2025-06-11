@@ -1,4 +1,4 @@
-# TOPICS [10TH JUNE 2025]:
+# TOPICS [11TH JUNE 2025]:
 
 - Support Vector Machine [Classification]
 
