@@ -8,7 +8,7 @@
   - Removing Punctuations, white spaces, and URLs.
   - POS (Part-of-Speech) Tagging.
 
-- Deep Learning:
+- Deep Learning [Neural Networks]:
   - Artificial Neural Network.
   - Convolutional Neural Network.
   - Recurrent Neural Network.
