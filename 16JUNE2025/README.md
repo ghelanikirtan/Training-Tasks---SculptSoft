@@ -10,9 +10,9 @@
 
 - Deep Learning [Neural Networks]:
   - Artificial Neural Network.
-  - Convolutional Neural Network.
-  - Recurrent Neural Network.
+  - Convolutional Neural Network. [continued on 17th June 2025]
+  - Recurrent Neural Network. [continued on 17th June 2025]
 
 # TASKS:
 
-- Perform some practical on the above by applying these learnings on the previous' **News Classification** dataset.
+- Perform some practical on the above by applying these learnings on the previous' **News Classification** dataset. [continued on 17th June 2025]
