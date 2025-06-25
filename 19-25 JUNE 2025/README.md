@@ -35,4 +35,5 @@ Completed with GANs [Generative Adversarial Networks] - built training ready pip
 
 ### 📅 25 JUNE 2025:
 
-_⚠️ In-progress ⚠️_
+- Computer Vision [Basics of Image Processing using open-cv library]: **[GITHUB Link - cv-image-procesing.ipynb 🔗](https://github.com/ghelanikirtan/Training-Tasks---SculptSoft/blob/main/19-25%20JUNE%202025/computer-vision/cv-image-processing.ipynb)**
+  _⚠️ In-progress ⚠️_
