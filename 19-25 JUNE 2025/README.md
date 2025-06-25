@@ -7,11 +7,15 @@
 - Containerize the entire project via **Docker** and it's compose includes the following services: **gpu_services** and **ml_pipeline** [Kinda Ready to train model on Cloud: say EC2 Instance or other system having GPUs for effective training]
 - Project Link: **[GITHUB - BERT-LSTM Classifier [news text data categorization] 🔗](https://github.com/ghelanikirtan/BERT-LSTM-Classifier)**
 
+---
+
 ### 📅 20 JUNE 2025:
 
 Learned about Object Detection Methods [Yolo V9 specifically].
 
 - Explored about it's fine-tuning techniques and many more...
+
+---
 
 ### 📅 23 JUNE 2025:
 
@@ -19,11 +23,15 @@ Completed with GRU [Gated Recurrent Unit] - applied on text based data [to build
 
 - Project Link: **[GITHUB - BERT-GRU Classifier [textual data classification - pipelines] 🔗](https://github.com/ghelanikirtan/BERT-GRU-Classifier)**
 
+---
+
 ### 📅 24 JUNE 2025:
 
 Completed with GANs [Generative Adversarial Networks] - built training ready pipeline based animal image data :
 
 - Project Link: **[GITHUB - Generative Adversarial Networks [training pipelines] 🔗](https://github.com/ghelanikirtan/GAN-Train-Pipeline)**
+
+---
 
 ### 📅 25 JUNE 2025:
 
