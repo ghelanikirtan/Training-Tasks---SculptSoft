@@ -36,4 +36,11 @@ Completed with GANs [Generative Adversarial Networks] - built training ready pip
 ### 📅 25 JUNE 2025:
 
 - Computer Vision [Basics of Image Processing using open-cv library]: **[GITHUB Link - cv-image-procesing.ipynb 🔗](https://github.com/ghelanikirtan/Training-Tasks---SculptSoft/blob/main/19-25%20JUNE%202025/computer-vision/cv-image-processing.ipynb)**
-  _⚠️ In-progress ⚠️_
+
+---
+
+### 📅 30 JUNE 2025 - 2 JULY 2025:
+
+- My Own Language Model Project 's version 1 complete [LMv1]:
+- Includes Data Preprocessors, Trainer, Validator, Predictor, and run language model modules.
+- Complete Project Github Link [v1 - will be improving as a part of extra learnings]: **[Github - Language Model from Scratch 🔗](https://github.com/ghelanikirtan/Language-Model-using-pytorch-from-scratch/tree/v1)**
