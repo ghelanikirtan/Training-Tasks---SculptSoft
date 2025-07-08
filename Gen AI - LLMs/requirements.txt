@@ -1,0 +1,10 @@
+langchain
+langchain-community
+langgraph
+chardet
+pypdf
+beautifulsoup4
+selenium
+langchain-unstructured
+unstructured[pptx]
+tiktoken
