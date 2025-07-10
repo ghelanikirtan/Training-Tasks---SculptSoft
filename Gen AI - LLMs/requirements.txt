@@ -1,10 +1,14 @@
 langchain
 langchain-community
+langchain-unstructured
+langchain-openai
+langchain-google-genai
+langchain-chroma>=0.1.2
 langgraph
 chardet
 pypdf
 beautifulsoup4
 selenium
-langchain-unstructured
 unstructured[pptx]
 tiktoken
+protobuf==3.20.3
